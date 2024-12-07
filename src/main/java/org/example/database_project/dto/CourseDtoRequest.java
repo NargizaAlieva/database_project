@@ -1,11 +1,5 @@
 package org.example.database_project.dto;
 
-import lombok.*;
-
-@Data
-@Getter
-@Setter
-@NoArgsConstructor
 public class CourseDtoRequest {
     private Long id;
     private String title;
@@ -14,6 +8,8 @@ public class CourseDtoRequest {
     private Integer price;
     private Long instructorId;
     private Long categoryId;
+
+    public CourseDtoRequest() {}
 
     public Long getId() {
         return id;

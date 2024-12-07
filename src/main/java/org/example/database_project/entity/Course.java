@@ -1,17 +1,11 @@
 package org.example.database_project.entity;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import java.time.LocalDate;
 
 @Entity
 @Table(name = "course")
-@Getter
-@Setter
-@NoArgsConstructor
 public class Course {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -40,11 +34,13 @@ public class Course {
 
     @ManyToOne
     @JoinColumn(name = "instructor_id", referencedColumnName = "id")
-    private Instructor instructor;
+    private Instructor courseInstructor;
 
     @ManyToOne
     @JoinColumn(name = "category_id", referencedColumnName = "id")
-    private Category category;
+    private Category courseCategory;
+
+    public Course() {}
 
     @PrePersist
     private void prePersist() {
@@ -124,20 +120,20 @@ public class Course {
     }
 
     public Instructor getInstructor() {
-        return instructor;
+        return courseInstructor;
     }
 
-    public Course setInstructor(Instructor instructor) {
-        this.instructor = instructor;
+    public Course setInstructor(Instructor courseInstructor) {
+        this.courseInstructor = courseInstructor;
         return this;
     }
 
     public Category getCategory() {
-        return category;
+        return courseCategory;
     }
 
-    public Course setCategory(Category category) {
-        this.category = category;
+    public Course setCategory(Category courseCategory) {
+        this.courseCategory = courseCategory;
         return this;
     }
 }

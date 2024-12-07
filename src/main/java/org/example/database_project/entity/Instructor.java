@@ -1,17 +1,12 @@
 package org.example.database_project.entity;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Table(name = "instructor")
-@Getter
-@Setter
-@NoArgsConstructor
 public class Instructor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,6 +23,11 @@ public class Instructor {
 
     @Column(name = "registration_date")
     private LocalDate registrationDate;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "courseInstructor")
+    private List<Course> courseList;
+
+    public Instructor() {}
 
     @PrePersist
     private void prePersist() {
@@ -76,6 +76,15 @@ public class Instructor {
 
     public Instructor setRegistrationDate(LocalDate registrationDate) {
         this.registrationDate = registrationDate;
+        return this;
+    }
+
+    public List<Course> getCourseList() {
+        return courseList;
+    }
+
+    public Instructor setCourseList(List<Course> courseList) {
+        this.courseList = courseList;
         return this;
     }
 }

@@ -1,19 +1,15 @@
 package org.example.database_project.dto;
 
-import lombok.*;
-
 import java.time.LocalDate;
 
-@Data
-@Getter
-@Setter
-@NoArgsConstructor
 public class InstructorDto {
     private Long id;
     private String name;
     private String email;
     private String bio;
     private LocalDate registrationDate;
+
+    public InstructorDto() {}
 
     public Long getId() {
         return id;

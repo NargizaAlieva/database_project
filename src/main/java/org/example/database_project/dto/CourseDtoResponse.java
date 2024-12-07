@@ -1,13 +1,7 @@
 package org.example.database_project.dto;
 
-import lombok.*;
-
 import java.time.LocalDate;
 
-@Data
-@Getter
-@Setter
-@NoArgsConstructor
 public class CourseDtoResponse {
     private Long id;
     private String title;
@@ -19,6 +13,8 @@ public class CourseDtoResponse {
     private Integer totalEnrollments;
     private Float averageRating;
     private LocalDate creationDate;
+
+    public CourseDtoResponse() {}
 
     public Long getId() {
         return id;
