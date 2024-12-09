@@ -1,6 +1,5 @@
 package org.example.database_project.service.impl;
 
-import lombok.RequiredArgsConstructor;
 import org.example.database_project.dto.InstructorDto;
 import org.example.database_project.entity.Instructor;
 import org.example.database_project.repository.InstructorRepository;

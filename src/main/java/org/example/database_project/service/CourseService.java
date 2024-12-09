@@ -12,6 +12,13 @@ public interface CourseService {
     List<CourseDtoResponse> getAllCourses();
     List<CourseDtoResponse> getCoursesByCategoryName(String categoryName);
     List<CourseDtoResponse> getCoursesByInstructorName(String instructorName);
+    List<CourseDtoResponse> getCoursesByStudentId(Long studentId);
+
     CourseDtoResponse createCourse(CourseDtoRequest CourseDto);
     CourseDtoResponse updateCourse(CourseDtoRequest CourseDto);
+
+    List<CourseDtoResponse> sortByDuration(List<CourseDtoResponse> courseDtoResponseList);
+    List<CourseDtoResponse> sortByPrice(List<CourseDtoResponse> courseDtoResponseList);
+    List<CourseDtoResponse> sortByEnrollments(List<CourseDtoResponse> courseDtoResponseList);
+    List<CourseDtoResponse> sortByRating(List<CourseDtoResponse> courseDtoResponseList);
 }
